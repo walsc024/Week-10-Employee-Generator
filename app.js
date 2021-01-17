@@ -177,6 +177,15 @@ function createTeam() {
                 createTeam();
             })
     }
+    
+    function createHtml(){
+        //If they have selected not to add another team member then render the html
+        if (fs.existsSync(OUTPUT_DIR) ===false){
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        fs.writeFileSync(outputPath, render(newTeam))
+        }
+        startCreatingTeam();
 }
 
 module.exports = teamMembers
@@ -198,7 +207,7 @@ createTeam();
 // does not.
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
+// info rmation; write your code to ask different questions via inquirer depending on
 // employee type.
 
 // HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
